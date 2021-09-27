@@ -40,7 +40,7 @@ All forms inputs are validated.
 ## Start-up instructions:
 
 Some sample data will be saved to database during first start of Docker container once SQL script is executed.
-To login - username: user; and password user01; can be used OR register a new user.
+To login - username: **user**; and password **user01**; can be used OR register a new user.
 
 ###Start sequence:
 
@@ -58,7 +58,7 @@ Windows: `app-start.win.bat` ; Linux: `app-start-nix.sh`;
   * Angular frontend will be started on port 4200
 
 To terminate frontend: CTRL+C; To terminate Docker: docker stop exchange-app-ctr;
-To terminate Soring-Boot: CTRL+Brk or 'exit' terminal window.
+To terminate Spring-Boot: CTRL+Brk or 'exit' terminal window.
 
 Manual option:
 
