@@ -40,7 +40,7 @@ All forms inputs are validated.
 ## Start-up instructions:
 
 Some sample data will be saved to database during first start of Docker container once SQL script is executed.
-To login - username: **user**; and password **user01**; can be used OR register a new user.
+To login to application - username: **user** and password **user01** can be used OR register a new user.
 
 ###Start sequence:
 
