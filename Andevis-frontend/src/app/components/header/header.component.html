@@ -1,0 +1,31 @@
+<header class="p-3 bg-dark text-white">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-between">
+      <span class="logo mr-4">
+        <a style="text-decoration: underline; font-size: x-large; font-weight: bold" href="/main/exchange" >Currency exchange</a>
+        </span>
+      <div *ngIf="!authenticated; else templateName">
+        <div class="text-end ml-4">
+          <button [routerLink]="['/register']" routerLinkActive="active" type="button" class="btn btn-warning head-button">
+            Register
+          </button>
+        </div>
+      </div>
+      <ng-template #templateName>
+        <div style="font-weight: bold; font-size: large">
+          Welcome, {{this.userName}}!
+          <a>
+            <div style="display: inline-block; position: relative; top: 10px; cursor: pointer" class="_profile">
+              <div class='_head'></div>
+              <div class='_body'></div>
+            </div>
+          </a>
+        </div>
+        <button (click)="logout()" [routerLink]="['/logout']" routerLinkActive="active" type="button" class="btn btn-danger">
+          Logout
+        </button>
+      </ng-template>
+    </div>
+
+  </div>
+</header>

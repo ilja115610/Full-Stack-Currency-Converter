@@ -1,0 +1,23 @@
+<div class="m-5 row justify-content-center">
+  <h2>EUROPEAN CENTRAL BANK CURRENCY CONVERTER</h2>
+</div>
+<div class="container">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" aria-current="page" [routerLink]="['./exchange']" [routerLinkActive]="['active']">Exchange</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" aria-current="page" [routerLink]="['./history']" [routerLinkActive]="['active']">History log</a>
+    </li>
+    <li class="nav-item">
+      <p class="greenTabL"
+         *ngIf="conversionMode; else elseBlock" >Select currencies and enter amount to convert</p>
+      <ng-template #elseBlock><p class="greenTabR">
+        Conversion requests history</p></ng-template>
+    </li>
+  </ul>
+
+
+  <router-outlet></router-outlet>
+
+</div>

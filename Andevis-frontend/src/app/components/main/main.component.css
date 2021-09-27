@@ -1,0 +1,7 @@
+.greenTabL{
+  display: block; color: green; margin-bottom: -1px;padding: 0.5rem 1rem; margin-left: 100px;
+}
+
+.greenTabR{
+  display: block; color: green; margin-left: 100px; margin-bottom: -1px;padding: 0.5rem 1rem;
+}

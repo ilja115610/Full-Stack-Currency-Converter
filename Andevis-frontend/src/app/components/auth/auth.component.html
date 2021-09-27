@@ -1,0 +1,50 @@
+<div style="height: 75vh">
+  <div class="container">
+    <form class="text-center border border-light p-5" #loginForm="ngForm">
+
+      <p class="h4 mb-4">Login</p>
+
+      <span class="redAlert" *ngIf="message==='Wrong username or password'&&timeIsUp">{{message}}</span>
+
+      <div style="text-align: left; padding: 0" *ngIf="username.invalid && (username.dirty || username.touched)"
+           class="alert">
+
+        <div *ngIf="username.errors?.required">
+          <small class="redAlert">Username is required.</small>
+        </div>
+        <div *ngIf="username.errors?.minlength">
+          <small class="redAlert">Username must be at least 4 characters long.</small>
+        </div>
+      </div>
+      <input type="text" required minlength="4" id="defaultLoginFormEmail" class="form-control" placeholder="Login" name="login" [(ngModel)]="login"
+        #username="ngModel"/>
+      <br>
+      <br>
+
+      <div style="text-align: left; padding: 0" *ngIf="pass.invalid && (pass.dirty || pass.touched)"
+           class="alert">
+
+        <div *ngIf="pass.errors?.required">
+          <small class="redAlert">Password is required.</small>
+        </div>
+        <div *ngIf="pass.errors?.minlength">
+          <small class="redAlert">Password must be at least 4 characters long.</small>
+        </div>
+
+      </div>
+      <!-- Password -->
+      <input type="password" required minlength="4" id="defaultLoginFormPassword" class="form-control mb-2" placeholder="Password" name="password"
+        [(ngModel)]="password"
+        #pass="ngModel"/>
+
+      <div class="d-flex justify-content-center">
+        <!-- Sign in button -->
+        <button  class="my-4" type="button" (click)="getLogin(loginForm); setTimer()">Sign in</button>
+      </div>
+      <p>
+        Not a member?
+        <a href="/register">Register</a>
+      </p>
+    </form>
+  </div>
+</div>

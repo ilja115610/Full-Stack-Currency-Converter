@@ -1,0 +1,70 @@
+
+<div class="container">
+  <form class="text-center border border-light p-5" #registrationForm="ngForm">
+    <p class="h4 mb-4">Registration</p>
+
+    <div style="text-align: left; padding: 0" *ngIf="username.invalid && (username.dirty || username.touched)"
+         class="alert">
+
+      <div *ngIf="username.errors?.required">
+        <small class="redAlert">Username is required.</small>
+      </div>
+      <div *ngIf="username.errors?.minlength">
+        <small class="redAlert">Username must be at least 4 characters long.</small>
+      </div>
+    </div>
+
+    <input type="text" class="form-control mb-4" name="login" placeholder="Login" [(ngModel)]="login" #username="ngModel"
+           required minlength="4"/>
+
+
+
+    <div style="text-align: left; padding: 0" *ngIf="pass.invalid && (pass.dirty || pass.touched)"
+         class="alert">
+
+      <div *ngIf="pass.errors?.required">
+        <small class="redAlert">Password is required.</small>
+      </div>
+      <div *ngIf="pass.errors?.minlength">
+        <small class="redAlert">Password must be at least 4 characters long.</small>
+      </div>
+    </div>
+
+    <input type="password" id="defaultRegisterFormPassword" class="form-control mb-4" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock"
+      [(ngModel)]="password"
+      #pass="ngModel"
+      required minlength="4"
+      name="password"/>
+    <small
+      id="defaultRegisterFormPasswordHelpBlock"
+      class="form-text text-muted mb-4">
+    </small>
+    <!-- E-mail -->
+
+
+    <div style="text-align: left; padding: 0" *ngIf="email_address.invalid && (email_address.dirty || email_address.touched)"
+         class="alert ">
+
+      <div *ngIf="email_address.errors?.required">
+        <small class="redAlert">Email is required.</small>
+      </div>
+      <div *ngIf="email_address.errors?.pattern">
+        <small class="redAlert">Wrong email address.</small>
+      </div>
+    </div>
+
+    <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail" [(ngModel)]="email"
+      #email_address="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" required/>
+
+    <!-- Sign up button -->
+    <button class="my-4" type="button" (click)="register(registrationForm)">
+      Register
+    </button>
+    <!-- Terms of service -->
+    <p>
+      By clicking <em>Sign up</em> you agree to our
+      <a href="" target="_blank">terms of service</a>
+    </p>
+  </form>
+</div>
+

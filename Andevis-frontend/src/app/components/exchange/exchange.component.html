@@ -1,0 +1,55 @@
+
+<div class="card" >
+  <div class="card-body" >
+    <form #form='ngForm'>
+      <div>
+        <div class="row">
+          <div class="col-4 fw-bold">Amount</div>
+          <div class="col-3 fw-bold">From</div>
+          <div class="col-3 fw-bold">To</div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <input type="number" class="form-control" name="amount" placeholder="Type an amount here" [(ngModel)]="amount"
+                   #amountValue="ngModel" required="required" (ngModelChange)="resetForm()"/>
+            <small *ngIf="amountValue.errors?.required && (amountValue.dirty || amountValue.touched)" class="redAlert">Please enter an amount to convert</small>
+            <div style="margin-top: 30px">
+            </div>
+          </div>
+          <div class="col-3">
+            <select name="sourceCurrency" [(ngModel)]="sourceCurrency" class="form-select">
+              <option *ngFor="let currency of currencies" [ngValue]="currency.currencyCode" [selected]="currency.currencyCode">{{currency.currencyCode}} - {{currency.currencyName}}</option>
+            </select>
+            <div style="margin-top: 30px">
+            </div>
+          </div>
+          <div class="col-3">
+            <select name="targetCurrency" [(ngModel)]="targetCurrency" class="form-select">
+              <option *ngFor="let currency of currencies" [ngValue]="currency.currencyCode" [selected]="currency.currencyCode">{{currency.currencyCode}} - {{currency.currencyName}}</option>
+            </select>
+            <div style="margin-top: 30px">
+            </div>
+          </div>
+          <div class="col-2">
+          <button  type="button" (click)="sendRequest(form)" class="btn btn-primary">Convert</button>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card" style="min-height: 150px">
+            <div class="card-body">
+              <p *ngIf="rateRequest.amount">{{rateRequest.amount}} {{rateResponse.sourceCurrencyName +' ='}} </p>
+              <h4 *ngIf="rateResponse.calculatedRate">{{rateResponse.calculatedRate}} {{rateResponse.targetCurrencyName}}</h4>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+
+
