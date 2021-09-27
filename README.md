@@ -29,7 +29,7 @@ All forms inputs are validated.
 
 * Java 11
 
-* Spring-Boot 2.3.2 (Spring REST/ Spring Data Jpa)
+* Spring-Boot 2.3.2 (Spring REST/ Spring Data Jpa/ Spring Security/ JWT)
 
 * Hibernate
 
