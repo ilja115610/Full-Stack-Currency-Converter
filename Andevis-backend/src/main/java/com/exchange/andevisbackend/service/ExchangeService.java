@@ -146,15 +146,16 @@ public class ExchangeService {
 
             SortedSet<Currency> latestFromEcb = currencyData.parseXML(fileXML);
 
+            if(latestFromDb.isEmpty()){
+                return new TreeSet<>(currencyRepository.saveAll(latestFromEcb));
+            }
+
             if ((today.equals(dateInFile)) && !latestFromDb.equals(latestFromEcb)) {
                 iterateSimultaneously(latestFromDb, latestFromEcb, (d, e) -> {
                     d.setBaseRate(e.getBaseRate());
                 });
                 return new TreeSet<>(currencyRepository.saveAll(latestFromDb));
 
-            } else if (!latestFromDb.equals(latestFromEcb)) {
-
-                return new TreeSet<>(currencyRepository.saveAll(latestFromEcb));
             }
         }
         catch (IOException e){
