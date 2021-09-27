@@ -7,7 +7,7 @@
 Currency exchange application main function is to convert an amount of money from one currency into another.
 Exchange rates are taken from European central bank website (XML format). Once logged in, the latest currency data fetched and user redirected to
 main page where source currency, target currency and amount to convert have to be selected.
-At every conversion request - currency data in database is compared with the latest on ECB website and updated if required.
+At every conversion request - the latest currency data (by current date) fetched from database and in case currenct data not found, it is updated from ECB website.
 Also, every conversion request and all relevant data are saved in database and available on 'Conversion requests history' tab with filtering search.
 Currency rates data on ECB website is updated every weekday at 16:00CET therefore Scheduled task implemented on backend
 to update rates every day at 16:00CET.
