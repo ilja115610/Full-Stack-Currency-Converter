@@ -6,4 +6,5 @@ cd Andevis-backend
 start /b mvn spring-boot:run
 cd ..
 cd Andevis-frontend
+npm install
 ng serve

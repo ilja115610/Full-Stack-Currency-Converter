@@ -21,7 +21,7 @@ All forms inputs are validated.
 
 * TypeScript 4.2.4
 
-* Angular 12
+* Node 14 & Angular 12 & NPM 6
 
 * Bootstrap 5
 
@@ -51,13 +51,13 @@ Automated option:
 1. Clone repository `https://github.com/ilja115610/Full-Stack-Currency-Converter.git`
 
 2. Being in project root directory - execute script depending on your Operating system.
-Windows: `app-start.win.bat` ; Linux: `app-start-nix.sh`;
-   
-  * Dockerized Postgres 12 database will be started on default port 5432 with volume to keep data
-  * Spring Boot backend will be started in background on port 8080
-  * Angular frontend will be started on port 4200
+   Windows: `app-start.win.bat` ; Linux: `sh app-start-nix.sh`;
 
-To terminate frontend: CTRL+C; To terminate Docker: docker stop exchange-app-ctr;
+* Dockerized Postgres 12 database will be started on default port 5432 with volume to keep data
+* Spring Boot backend will be started in background on port 8080
+* Angular frontend will be started on port 4200
+
+To terminate frontend: CTRL+C/CTRL+Z; To terminate Docker: docker stop exchange-app-ctr;
 To terminate Spring-Boot: CTRL+Brk or 'exit' terminal window.
 
 Manual option:
@@ -65,11 +65,13 @@ Manual option:
 1. Clone repository `https://github.com/ilja115610/Full-Stack-Currency-Converter.git`
 
 2. From project root directory change dir to 'db-postgres' and execute 2 commands:
-`docker build -t exchange-app-img .` and then `docker run -d -p 5432:5432 --rm -v logs:/var/lib/postgresql/data --name exchange-app-ctr exchange-app-img`
-   
+   `docker build -t exchange-app-img .` and then `docker run -d -p 5432:5432 --rm -v logs:/var/lib/postgresql/data --name exchange-app-ctr exchange-app-img`
+
 3. From project root directory change dir to Andevis-backend and execute command:
-`mvn spring-boot:run`
-   
-4. From new terminal window and project root directory change dir to Andevis-frontend and execute command:
+   `mvn spring-boot:run`
+
+4. From new terminal window and project root directory change dir to Andevis-frontend and execute commands:
+   `npm install`
    `ng serve`
+
 
