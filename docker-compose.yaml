@@ -1,0 +1,51 @@
+version: '3.9'
+
+#Define services
+services:
+
+  #PostgreSQL Database for the application
+  db-postgres:
+    build: ./db-postgres
+    container_name: db-postgres
+    #Volume mounted for database for the storage
+    volumes:
+      - vol:/var/lib/postgresql/data
+    ports:
+      - "5432:5432" # Forward the exposed port 5432 on the container to port 5432 on the host machine
+    #Environment variable for DB name, user and password
+    environment:
+      - POSTGRES_DB=currency_exchange
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres03
+
+  #Back-end Spring Boot Application
+  andevis-backend:
+    #The docker file in scrum-app build the jar and provides the docker image with the following name.
+    build: ./andevis-backend
+    container_name: andevis-backend
+    depends_on:
+      - db-postgres
+
+    #Environment variables for Spring Boot Application.
+    environment:
+      - DB_SERVER=localhost:5432
+      - POSTGRES_DB=currency_exchange
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres03
+    ports:
+      - "8080:8080" # Forward the exposed port 8080 on the container to port 8080 on the host machine
+    links:
+      - db-postgres
+
+  #Fron-end Angular Application
+  andevis-frontend:
+    build: ./andevis-frontend
+    container_name: andevis-fronend
+    ports:
+      - "80:80"
+    links:
+      - andevis-backend
+
+#Volumes for DB data
+volumes:
+  vol:

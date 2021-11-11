@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     private final UserAccountRepository userRepository;
+
     @Autowired
     public UserDetailsServiceImpl(UserAccountRepository userRepository) {
         this.userRepository = userRepository;
