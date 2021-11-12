@@ -6,5 +6,6 @@ RUN mkdir /storageData
 ENV PGDATA=/storageData
 RUN chown -R "$(id -u)" "$PGDATA" 2>/dev/null || :
 RUN chmod -R 777 /storageData
+VOLUME /storageData
 COPY script.sql /docker-entrypoint-initdb.d/
 
