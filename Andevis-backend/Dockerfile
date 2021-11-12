@@ -9,4 +9,5 @@ FROM openjdk:11
 USER root
 WORKDIR /backend-app
 COPY --from=build /backend-app/target/Andevis-backend-0.0.1.jar .
+EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "Andevis-backend-0.0.1.jar"]
