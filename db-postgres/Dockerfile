@@ -1,7 +1,5 @@
-FROM postgres:12
-ENV POSTGRES_DB=currency_exchange
-ENV POSTGRES_USER=postgres
-ENV POSTGRES_PASSWORD=postgres03
-RUN su postgres
+FROM registry.access.redhat.com/openshift3/postgresql-92-rhel7
+ENV POSTGRESQL_DATABASE=currency_exchange
+ENV POSTGRESQL_USER=ilja115610
+ENV POSTGRESQL_PASSWORD=postgres03
 COPY script.sql /docker-entrypoint-initdb.d/
-
