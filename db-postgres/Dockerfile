@@ -1,5 +1,6 @@
 FROM postgres:12
-RUN chown -R $(id -u) $PGDATA 2>/dev/null || :
+RUN /bin/bash -c 'chmod 777 /var/lib/postgresql/data'
+RUN /bin/bash -c 'chmod 777 /var/lib/postgresql/data/pgdata'
 ENV POSTGRES_DB=currency_exchange
 ENV POSTGRES_USER=postgres
 ENV POSTGRES_PASSWORD=postgres03
