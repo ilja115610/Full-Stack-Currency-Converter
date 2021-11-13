@@ -1,4 +1,4 @@
-FROM node:12.14-alpine AS build
+FROM node:14.3.0-alpine AS build
 USER root
 WORKDIR /app
 COPY . .
