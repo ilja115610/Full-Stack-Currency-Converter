@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/openshift3/postgresql-92-rhel7
+FROM rhel8/postgresql-12
 ENV POSTGRESQL_USER=postgres
 ENV POSTGRESQL_PASSWORD=postgres03
 ENV POSTGRESQL_DATABASE=currency_exchange
