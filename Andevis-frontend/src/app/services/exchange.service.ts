@@ -12,7 +12,7 @@ import {Router} from "@angular/router";
 })
 export class ExchangeService {
 
-  private baseUrl = 'http://localhost:8080/api/exchange';
+  private baseUrl = 'http://backend-ilja115610-dev.apps.sandbox.x8i5.p1.openshiftapps.com/api/exchange';
 
 
   constructor(private httpClient: HttpClient, private authService: AuthService, private router: Router) { }

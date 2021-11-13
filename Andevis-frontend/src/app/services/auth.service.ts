@@ -8,9 +8,9 @@ import {LoginResponse} from "../common/login-response";
 })
 export class AuthService {
 
-  private authUrl = 'http://localhost:8080/auth';
+  private authUrl = 'http://backend-ilja115610-dev.apps.sandbox.x8i5.p1.openshiftapps.com/auth';
 
-  private logoutUrl = 'http://localhost:8080/logout';
+  private logoutUrl = 'http://backend-ilja115610-dev.apps.sandbox.x8i5.p1.openshiftapps.com/logout';
 
   authentication: Subject<string> = new BehaviorSubject<string>(this.getToken());
 

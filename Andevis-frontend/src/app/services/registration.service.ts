@@ -7,7 +7,7 @@ import {LoginResponse} from "../common/login-response";
 })
 export class RegistrationService {
 
-  private URL = "http://localhost:8080/register";
+  private URL = "http://backend-ilja115610-dev.apps.sandbox.x8i5.p1.openshiftapps.com/register";
 
   constructor(private http: HttpClient) {
   }
