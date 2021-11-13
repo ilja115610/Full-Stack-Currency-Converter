@@ -1,7 +1,6 @@
-FROM registry.redhat.io/rhel8/nodejs-12@sha256:af4fbb0820f08ce89d896f2eff6148b9c0e5a28cef3f809341ebc18cd48ad2ad AS build
+FROM node:12.14-alpine AS build
+USER root
 WORKDIR /app
-RUN chgrp -R 0 /app && \
-    chmod -R g=u /app
 COPY . .
 RUN npm install
 RUN npm run build
