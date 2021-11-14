@@ -1,5 +1,5 @@
 # Build stage
-FROM maven:3.8.3-jdk-11-slim AS build
+FROM ilja115610/maven:andevis AS build
 WORKDIR /backend-app
 RUN chgrp -R 0 /backend-app && \
     chmod -R g=u /backend-app
