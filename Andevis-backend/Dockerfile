@@ -1,6 +1,8 @@
 # Build stage
 FROM maven:3.8.3-jdk-11-slim AS build
 WORKDIR /backend-app
+RUN chgrp -R 0 /backend-app && \
+    chmod -R g=u /backend-app
 COPY pom.xml .
 COPY src ./src
 RUN mvn install
