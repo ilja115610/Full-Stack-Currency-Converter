@@ -1,11 +1,11 @@
 FROM node:14.15 AS build
 USER root
 WORKDIR /app
-COPY . .
-RUN npm install && \
-    npm run ngcc
-RUN npm run build
+RUN chgrp -R 0 /app && \
+    chmod -R g=u /app
+COPY dist ./
 ### STAGE 2: Run ###
-FROM nginx:1.17.1-alpine
-COPY --from=build /app/dist/Andevis-frontend /usr/share/nginx/html
-EXPOSE 80
+FROM twalter/openshift-nginx:latest
+COPY ./dist/Andevis-frontend /usr/share/nginx/html
+EXPOSE 8081
+
